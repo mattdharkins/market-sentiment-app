@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<div style="margin-left: 9vw; margin-top: 6vh;">
+<form method="GET">
+    <input type="text" name="quoteDate" placeholder="YYYY-MM-DD"/>
+    <input type="button" name="go" onclick='this.form.submit()'value="Submit" />
+  </form>
+</div>
+
+
+{%if overallSentiment == "Bullish" %}
+<h4><div style="text-align:center; padding-top: 2vh; padding-bottom: .5vh;">Overall Market Sentiment: <span style="color: rgb(29, 209, 12)">{{ overallSentiment }}</span></div></h4>
+{%elif overallSentiment == "Bearish" %}
+<h4><div style="text-align:center; padding-top: 2vh; padding-bottom: .5vh;">Overall Market Sentiment: <span style="color: red">{{ overallSentiment }}</span></div></h4>
+{% else %}
+<h4><div style="text-align:center; padding-top: 2vh; padding-bottom: .5vh;">Overall Market Sentiment: <span style="color: gray">{{ overallSentiment }}</span></div></h4>
+{% endif %}
+<h5><div style="text-align:center; padding-bottom: 2vh;">For {{ qDate }}</div></h5>
+
+
+
+<table class="table table-striped" style="text-align: center; width: 50%; margin-left: auto; margin-right: auto;">
+    <tr><th>Symbol</th><th>Sentiment</th></tr>
+{% for optionsInfo in optionsInfos %}
+    {%if optionsInfo.sentiment == "Bullish" %}
+    <tr><td>{{optionsInfo.symbol}}</td><td style="color: rgb(29, 209, 12);">{{optionsInfo.sentiment}}</td></tr>
+    {%elif optionsInfo.sentiment == "Bearish" %}
+    <tr><td>{{optionsInfo.symbol}}</td><td style="color: red;">{{optionsInfo.sentiment}}</td></tr>
+    {% else %}
+    <tr><td>{{optionsInfo.symbol}}</td><td style="color: gray;">{{optionsInfo.sentiment}}</td></tr>
+    {% endif %}
+{% endfor %}
+</table>
+
+
+{% endblock content %}

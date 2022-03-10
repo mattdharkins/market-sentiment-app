@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="../static/css/main.css">
+<link rel="icon" type="image/x-icon" href="../static/images/fav.png">
+<title>Vision Analytics</title>
+</head>
+<body>
+
+
+
+    <!-- start of navbar -->
+    <nav class="ct-nav">
+        <div>
+            <a href ="{{ url_for('site.home') }}">
+                <img src="../static/images/logo.png" alt="logo" href="{{ url_for('site.home') }}"></div>
+            </a>
+        <div>
+            <ul id="horizontal-list">
+                <a href="{{ url_for('site.market_sentiment') }}">
+                    <li>Market Sentiment</li>
+                </a>
+                <a href="https://www.buymeacoffee.com/mharkins" target="_blank">
+                    <li>Support Us</li>
+                </a>
+                <a href="{{ url_for('site.methodology') }}">
+                    <li>Methodology</li>
+                </a>
+                {% if current_user.is_authenticated %}
+                <a href="{{ url_for('auth.logout') }}">
+                    <li>Log out</li>
+                </a>
+                {% else %}
+                <a href="{{ url_for('auth.signin') }}">
+                    <li>Sign in</li>
+                </a>
+                <a href="{{ url_for('auth.signup') }}">
+                    <li>Sign up</li>
+                </a>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <!-- end of navbar -->
+    
+    {% block content %}
+    {% endblock content %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+</html>

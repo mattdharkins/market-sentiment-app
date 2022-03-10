@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header class="hero-section" style="text-align:left; margin-top: 10vh; margin-left: 15vw; color: rgb(36, 145, 235)">
+    <h3 class="header-text">Methodology</h3>
+</header>
+
+<div class="method-text" style="text-align:left; margin-top: 5vh; max-width: 800px; margin-left: 15vw;">
+    <h6>We are using options spread pricing data to determine if the trading sentiment is bullish, bearish or neutral. 
+        This is done by finding out if buyers are paying an excess premium for an upside position, or if they are 
+        getting it at a discount. This pricing relationship tells us where sellers are identifying risk. If there’s 
+        more risk to the upside, then a buyer will pay an excess premium. If there’s less risk to the upside, 
+        then a buyer can buy that position at a discount since the seller feels there’s not as much 
+        risk involved for them in that scenario.<br><br><br>We are pricing call spreads with strike prices that are pretty 
+        close to where the current price of the underlying stock is trading. If we identify an excess premium, we classify 
+        it as “Bullish”. If we identify a discount on the spread, we classify it as “Bearish”. If there’s no clear excess 
+        premium or discount, then we classify it as “Neutral”. This is done for 30 very actively traded options in order to 
+        make sure pricing is efficient.<br><br><br>Once we have identified the sentiment of the 30 options we are focusing 
+        on, then we use that to see if we have a clear sentiment in the market. As you may notice if you manually 
+        counted, we do not consider a simple 51% rule to tell us market sentiment. That doesn’t seem to really signal anything 
+        definitive. We are trying to identify if there is clear sentiment in the market so we want to see it heavier than a simple 
+        majority. For our purposes, when either the bullish or bearish options count is 60% or above, then we consider that clear 
+        sentiment in that direction (bullish or bearish). If we don’t have that then we are considering sentiment to be neutral.</h6>
+</div>
+
+
+{% endblock content %}

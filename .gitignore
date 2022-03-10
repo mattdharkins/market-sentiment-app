@@ -1,0 +1,4 @@
+sentiment_env
+__pycache__
+migrations
+.env
