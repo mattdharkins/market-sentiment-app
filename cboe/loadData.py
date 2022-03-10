@@ -113,10 +113,10 @@ def main():
     symbols = ["AAPL", "MSFT", "FB", "NFLX", "AMZN", "NVDA", "GOOGL", "KO", "PYPL",
     "MRNA", "BA", "XOM", "GS", "F", "DIS", "PFE", "WFC", "JPM", "C", "BAC", "HD",
     "CVX", "V", "GM", "COST", "CVS", "WMT", "X", "UAL", "T"]
-    quoteDate = "2022-03-03"
+    quoteDate = "2022-02-25"
 
     for symbol in symbols: 
-        r = requestData(authResponse, symbol, "C", quoteDate, "2022-04-14")
+        r = requestData(authResponse, symbol, "C", quoteDate, "2022-03-18")
         processData(r, quoteDate)
 
 if __name__ == "__main__":

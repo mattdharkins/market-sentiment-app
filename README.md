@@ -12,6 +12,7 @@
         - pip install Flask-WTF
         - pip install Flask-SQLAlchemy
         - pip install Flask-Migrate
+        - pip install requests
         - pip install python-dotenv
         - pip install psycopg2
         - pip install email_validator
