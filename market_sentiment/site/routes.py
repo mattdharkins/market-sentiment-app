@@ -43,7 +43,9 @@ def market_sentiment():
             else:
                 neutral_count+=1
         overall_sentiment = None
-        if bullish_count >= 0.6 * total_count:
+        if total_count == 0:
+            overall_sentiment = "Date not in system"
+        elif bullish_count >= 0.6 * total_count:
             overall_sentiment = "Bullish"
         elif bearish_count >= 0.6 * total_count:
             overall_sentiment = "Bearish"

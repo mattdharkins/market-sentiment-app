@@ -79,7 +79,6 @@ def processData(r, quoteDate):
             nextOne = options[i+1]
 
     print(closest)
-    print(nextOne)
     front_delta = closest['delta']
     front_strike = closest['strike']
     back_strike = nextOne['strike']
@@ -113,10 +112,10 @@ def main():
     symbols = ["AAPL", "MSFT", "FB", "NFLX", "AMZN", "NVDA", "GOOGL", "KO", "PYPL",
     "MRNA", "BA", "XOM", "GS", "F", "DIS", "PFE", "WFC", "JPM", "C", "BAC", "HD",
     "CVX", "V", "GM", "COST", "CVS", "WMT", "X", "UAL", "T"]
-    quoteDate = "2022-02-25"
+    quoteDate = "2022-03-21"
 
     for symbol in symbols: 
-        r = requestData(authResponse, symbol, "C", quoteDate, "2022-03-18")
+        r = requestData(authResponse, symbol, "C", quoteDate, "2022-04-14")
         processData(r, quoteDate)
 
 if __name__ == "__main__":
